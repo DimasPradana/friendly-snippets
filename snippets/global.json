@@ -6,7 +6,9 @@
   },
   "diso": {
     "prefix": "diso",
-    "body": ["${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}"],
+    "body": [
+      "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}"
+    ],
     "description": "ISO date time stamp"
   },
   "date": {
@@ -31,7 +33,9 @@
   },
   "datetime": {
     "prefix": "datetime",
-    "body": ["${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} ${CURRENT_HOUR}:${CURRENT_MINUTE}"],
+    "body": [
+      "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} ${CURRENT_HOUR}:${CURRENT_MINUTE}"
+    ],
     "description": "I give you back the time and date (Y-m-d H:M)"
   },
   "Lorem Ipsum Sentence": {
@@ -45,7 +49,7 @@
     "description": "Lorem Ipsum Paragraph"
   },
   "MIT": {
-    "prefix": "mitl" ,
+    "prefix": "mitl",
     "description": "MIT License",
     "body": [
       "The MIT License (MIT)",
@@ -72,7 +76,7 @@
     ]
   },
   "GPL2": {
-    "prefix": "GPL2" ,
+    "prefix": "GPL2",
     "description": "GPLv2 License",
     "body": [
       "The GPLv2 License (GPLv2)",
@@ -94,7 +98,7 @@
     ]
   },
   "LGPL2": {
-    "prefix": "LGPL2" ,
+    "prefix": "LGPL2",
     "description": "GPLv2 License",
     "body": [
       "The GPLv2 License (GPLv2)",
@@ -400,5 +404,80 @@
       "SPDX-License-Identifier: ${1:Id}",
       "SPDX-FileCopyrightText: ${CURRENT_YEAR} ${2:Author}"
     ]
+  },
+  "todo": {
+    "prefix": ["todo"],
+    "body": [
+      "$LINE_COMMENT ${1:todo}: ${2:description} by snub on $CURRENT_DAY_NAME_SHORT $CURRENT_DATE $CURRENT_MONTH_NAME_SHORT $CURRENT_YEAR $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND ${0:status}"
+    ],
+    "description": "TODO reminder"
+  },
+  "fixme": {
+    "prefix": ["fixme"],
+    "body": [
+      "FIXME(${VIM:system('git config github.user | tr -d \"\n\"')}): ${0:Summary}"
+    ],
+    "description": "FIXME reminder"
+  },
+  "pwgen16": {
+    "prefix": ["pwgen16"],
+    "body": ["${VIM:system('pwgen -s 16 -1 | tr -d \"\n\"')}"],
+    "description": "Generate password with 16 characters"
+  },
+  "pwgen32": {
+    "prefix": ["pwgen32"],
+    "body": ["${VIM:system('pwgen -s 32 -1 | tr -d \"\n\"')}"],
+    "description": "Generate password with 32 characters"
+  },
+  "sRow": {
+    "prefix": ["snubrow"],
+    "body": ["di baris $TM_LINE_NUMBER"],
+    "description": "tambah number di baris ini"
+  },
+  "sTodo1": {
+    "prefix": ["snubtodo1"],
+    "body": [
+      "$BLOCK_COMMENT_START TODO: snub on $CURRENT_DAY_NAME_SHORT $CURRENT_DATE $CURRENT_MONTH_NAME_SHORT $CURRENT_YEAR $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND : $1"
+    ],
+    "description": "snub TODO"
+  },
+  "stodo2": {
+    "scope": "go, php",
+    "prefix": ["snubtodo2"],
+    "body": [
+      "/**",
+      " TODO: snub on $CURRENT_DAY_NAME_SHORT $CURRENT_DATE $CURRENT_MONTH_NAME_SHORT $CURRENT_YEAR $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+      "\t᚛ $1",
+      "\t᚛ $2",
+      "*/"
+    ],
+    "description": "snub todo multiline"
+  },
+  "sfold": {
+    "prefix": ["snubfold"],
+    "body": [
+      "$LINE_COMMENT vim:fileencoding=utf-8:ft=${1:$TM_FILENAME}:foldmethod=marker"
+    ],
+    "description": "snub for vim fold"
+  },
+  "ssfold": {
+    "prefix": ["snubStartFold"],
+    "body": ["$LINE_COMMENT {{{ ${1:description}"],
+    "description": "snub start vim fold"
+  },
+  "sefold": {
+    "prefix": ["snubEndFold"],
+    "body": ["$LINE_COMMENT }}}"],
+    "description": "snub end vim fold"
+  },
+  "spath": {
+    "prefix": ["snubpath"],
+    "body": ["$LINE_COMMENT $TM_FILEPATH"],
+    "description": "snub file path"
+  },
+  "srelpath": {
+    "prefix": ["snubrelativepath"],
+    "body": ["$LINE_COMMENT $RELATIVE_FILEPATH"],
+    "description": "snub relative file path"
   }
 }
